@@ -6,6 +6,6 @@ export declare class SmsSettingsServiceFactory extends Factory {
     static FilePersistenceDescriptor: Descriptor;
     static MongoDbPersistenceDescriptor: Descriptor;
     static ControllerDescriptor: Descriptor;
-    static HttpServiceDescriptor: Descriptor;
+    static CommandableHttpServiceDescriptor: Descriptor;
     constructor();
 }

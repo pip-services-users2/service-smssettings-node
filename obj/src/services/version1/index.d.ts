@@ -1,1 +1,1 @@
-export { SmsSettingsHttpServiceV1 } from './SmsSettingsHttpServiceV1';
+export { SmsSettingsCommandableServiceV1 } from './SmsSettingsCommandableServiceV1';

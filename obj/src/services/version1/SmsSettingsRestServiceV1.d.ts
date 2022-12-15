@@ -1,4 +1,4 @@
 import { CommandableHttpService } from 'pip-services3-rpc-nodex';
-export declare class SmsSettingsHttpServiceV1 extends CommandableHttpService {
+export declare class SmsSettingsRestServiceV1 extends CommandableHttpService {
     constructor();
 }

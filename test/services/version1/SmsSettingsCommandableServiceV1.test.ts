@@ -10,7 +10,7 @@ import { SmsNullClientV1 } from 'client-sms-node';
 import { SmsSettingsV1 } from '../../../src/data/version1/SmsSettingsV1';
 import { SmsSettingsMemoryPersistence } from '../../../src/persistence/SmsSettingsMemoryPersistence';
 import { SmsSettingsController } from '../../../src/logic/SmsSettingsController';
-import { SmsSettingsHttpServiceV1 } from '../../../src/services/version1/SmsSettingsHttpServiceV1';
+import { SmsSettingsCommandableServiceV1 } from '../../../src/services/version1/SmsSettingsCommandableServiceV1';
 
 let httpConfig = ConfigParams.fromTuples(
     "connection.protocol", "http",
@@ -26,8 +26,8 @@ let SETTINGS = <SmsSettingsV1> {
     verified: false
 };
 
-suite('SmsSettingsHttpServiceV1', ()=> {
-    let service: SmsSettingsHttpServiceV1;
+suite('SmsSettingsCommandableServiceV1', ()=> {
+    let service: SmsSettingsCommandableServiceV1;
 
     let rest: any;
 
@@ -37,14 +37,14 @@ suite('SmsSettingsHttpServiceV1', ()=> {
         let controller = new SmsSettingsController();
         controller.configure(new ConfigParams());
 
-        service = new SmsSettingsHttpServiceV1();
+        service = new SmsSettingsCommandableServiceV1();
         service.configure(httpConfig);
 
         let references: References = References.fromTuples(
             new Descriptor('service-smssettings', 'persistence', 'memory', 'default', '1.0'), persistence,
             new Descriptor('service-smssettings', 'controller', 'default', 'default', '1.0'), controller,
             new Descriptor('service-sms', 'client', 'null', 'default', '1.0'), new SmsNullClientV1(),
-            new Descriptor('service-smssettings', 'service', 'http', 'default', '1.0'), service
+            new Descriptor('service-smssettings', 'service', 'rest-http', 'default', '1.0'), service
         );
         controller.setReferences(references);
         service.setReferences(references);

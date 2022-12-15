@@ -5,7 +5,7 @@ import { SmsSettingsMongoDbPersistence } from '../persistence/SmsSettingsMongoDb
 import { SmsSettingsFilePersistence } from '../persistence/SmsSettingsFilePersistence';
 import { SmsSettingsMemoryPersistence } from '../persistence/SmsSettingsMemoryPersistence';
 import { SmsSettingsController } from '../logic/SmsSettingsController';
-import { SmsSettingsHttpServiceV1 } from '../services/version1/SmsSettingsHttpServiceV1';
+import { SmsSettingsCommandableServiceV1 } from '../services/version1/SmsSettingsCommandableServiceV1';
 
 export class SmsSettingsServiceFactory extends Factory {
 	public static Descriptor = new Descriptor("service-smssettings", "factory", "default", "default", "1.0");
@@ -13,7 +13,7 @@ export class SmsSettingsServiceFactory extends Factory {
 	public static FilePersistenceDescriptor = new Descriptor("service-smssettings", "persistence", "file", "*", "1.0");
 	public static MongoDbPersistenceDescriptor = new Descriptor("service-smssettings", "persistence", "mongodb", "*", "1.0");
 	public static ControllerDescriptor = new Descriptor("service-smssettings", "controller", "default", "*", "1.0");
-	public static HttpServiceDescriptor = new Descriptor("service-smssettings", "service", "http", "*", "1.0");
+	public static CommandableHttpServiceDescriptor = new Descriptor("service-smssettings", "service", "commandable-http", "*", "1.0");
 	
 	constructor() {
 		super();
@@ -21,7 +21,7 @@ export class SmsSettingsServiceFactory extends Factory {
 		this.registerAsType(SmsSettingsServiceFactory.FilePersistenceDescriptor, SmsSettingsFilePersistence);
 		this.registerAsType(SmsSettingsServiceFactory.MongoDbPersistenceDescriptor, SmsSettingsMongoDbPersistence);
 		this.registerAsType(SmsSettingsServiceFactory.ControllerDescriptor, SmsSettingsController);
-		this.registerAsType(SmsSettingsServiceFactory.HttpServiceDescriptor, SmsSettingsHttpServiceV1);
+		this.registerAsType(SmsSettingsServiceFactory.CommandableHttpServiceDescriptor, SmsSettingsCommandableServiceV1);
 	}
 	
 }
