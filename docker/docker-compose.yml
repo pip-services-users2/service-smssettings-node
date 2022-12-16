@@ -2,14 +2,15 @@ version: '3.3'
 
 services:
 
-  app:
+  test:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    image: ${IMAGE:-pipdevs/app}
+    image: ${IMAGE:-pipservices/app}
     links:
       - mongo
     environment:
+      - MONGO_SERVICE_URI=
       - MONGO_SERVICE_HOST=mongo
       - MONGO_SERVICE_PORT=27017
       - MONGO_DB=app
