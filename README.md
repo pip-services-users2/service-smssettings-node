@@ -86,7 +86,7 @@ Example of microservice configuration
 
 - descriptor: "service-smssettings:controller:default:default:1.0"
   
-- descriptor: "service-smssettings:service:http:default:1.0"
+- descriptor: "service-smssettings:service:commandable-http:default:1.0"
   connection:
     protocol: "http"
     host: "0.0.0.0"
